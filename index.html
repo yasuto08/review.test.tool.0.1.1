@@ -61,19 +61,18 @@
       justify-content: center;
       margin: 2em auto 1em;
     }
-    .custom-btn-container button {
-      background: none;
+    .gen-btn {
+      background-color: #a97444;
+      color: white;
+      font-size: 1.1em;
+      padding: 0.6em 1.5em;
       border: none;
-      padding: 0;
+      border-radius: 8px;
       cursor: pointer;
+      transition: background-color 0.2s ease;
     }
-    .custom-btn-container img {
-      width: 240px;
-      border-radius: 6px;
-      transition: opacity 0.2s ease;
-    }
-    .custom-btn-container img:hover {
-      opacity: 0.9;
+    .gen-btn:hover {
+      background-color: #8a5f34;
     }
     .output {
       background: #f9f1e7;
@@ -145,9 +144,7 @@
 
     <p style="text-align:center; margin-top:1em;">このボタンを押すと口コミが自動で生成されます。</p>
     <div class="custom-btn-container">
-      <button onclick="generateText()">
-        <img src="https://github.com/yasuto08/review.test.tool/raw/main/%E5%8F%A3%E3%82%B3%E3%83%9F%E4%BD%9C%E6%88%90.png" alt="口コミ作成ボタン" />
-      </button>
+      <button class="gen-btn" onclick="generateText()">口コミを作成する</button>
     </div>
 
     <div id="output" class="output" style="display: none;"></div>
@@ -190,7 +187,7 @@
     document.getElementById('copyBtn').onclick = function () {
       const text = document.getElementById('output').textContent;
       navigator.clipboard.writeText(text).then(() => {
-        alert(\"コピーしました！\");
+        alert("コピーしました！");
       });
     };
   </script>
